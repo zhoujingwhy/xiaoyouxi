@@ -17,9 +17,11 @@ def check_event(ai_settings,screen,ship,aliens,bullets,stats,play_button,scorebo
         elif event.type==pygame.MOUSEBUTTONDOWN:
             mouse_x,mouse_y=pygame.mouse.get_pos()
             check_play_button(ai_settings,screen,stats,ship,aliens,bullets,play_button,mouse_x,mouse_y,scoreboard)
+
 def check_play_button(ai_settings,screen,stats,ship,aliens,bullets,play_button,mouse_x,mouse_y,scoreboard):
     if play_button.rect.collidepoint(mouse_x,mouse_y) and not stats.game_active:
         start_game(ai_settings,screen,stats,aliens,bullets,ship,scoreboard)
+
 def check_keydown_event(ai_settings,screen,stats,aliens,event,ship,bullets,scoreboard):
             if event.key==pygame.K_RIGHT:
                 # 飞船向右移动
@@ -35,6 +37,7 @@ def check_keydown_event(ai_settings,screen,stats,aliens,event,ship,bullets,score
                 sys.exit()
             elif event.key==pygame.K_p:
                 start_game(ai_settings,screen,stats,aliens,bullets,ship,scoreboard)
+
 def start_game(ai_settings,screen,stats,aliens,bullets,ship,scoreboard):
     pygame.mouse.set_visible(False)
     # 初始化游戏设置
@@ -58,8 +61,7 @@ def check_keyup_event(event,ship):
             elif event.key==pygame.K_LEFT:
                 ship.moving_left=False
 
-def update_bullets(ai_settings,screen,bullets,aliens,ship,scoreboard
-,stats):
+def update_bullets(ai_settings,screen,bullets,aliens,ship,scoreboard,stats):
     for bullet in bullets.copy():
         if bullet.rect.top<=0:
             bullets.remove(bullet)
@@ -141,10 +143,12 @@ def create_fleet(ai_settings,screen,aliens,ship):
     for number_row in range(number_rows):
         for alien_number in range(number_alien_x):
             create_alien(ai_settings,screen,aliens,alien_number,number_row,alien_height,alien_width)
+
 def get_number_aliens_x(ai_settings,alien_width):
     available_space=ai_settings.screen_width-2*alien_width
     number_alien_x=int(available_space / (2*alien_width))
     return number_alien_x
+
 def get_number_aliens_y(ai_settings,alien_height,ship):
     available_space=ai_settings.screen_height-3*alien_height
     number_rows=int(available_space/(2*alien_height))
