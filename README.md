@@ -10,9 +10,10 @@
 （根据需求下载pygame-1.9.3-cp36-cp36m-win_amd64.whl）
 
 ##根据电脑屏幕初始化屏幕的设置
-   self.screen_width=1200
-   self.screen_height=600
-   self.bg_color=(230,230,230)
+  1 self.screen_width=1200
+  2 self.screen_height=600
+  3 self.bg_color=(230,230,230)
+ 
  运行 alien_invasion.py
 
 ## 具体功能
